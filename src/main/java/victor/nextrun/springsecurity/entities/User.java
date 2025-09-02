@@ -2,6 +2,8 @@ package victor.nextrun.springsecurity.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import victor.nextrun.springsecurity.controllers.dtos.LoginRequestDTO;
 
 import javax.management.relation.Role;
 import java.util.Set;
@@ -29,4 +31,8 @@ public class User {
     )
     private Set<Roles> roles;
 
+    public boolean isLoginCorrect(LoginRequestDTO loginRequestDTO, PasswordEncoder passwordEncoder) {
+           return passwordEncoder.matches(loginRequestDTO.password(), this.password);
+
+    }
 }

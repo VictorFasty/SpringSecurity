@@ -18,4 +18,6 @@ spring:
 
   security:
     oauth2:
- 
+      resource-server:
+        jwt:
+          public-key-location: classpath:app.pub
