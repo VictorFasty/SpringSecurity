@@ -1,4 +1,9 @@
 package victor.nextrun.springsecurity.repository;
 
-public class TweetRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+import victor.nextrun.springsecurity.entities.Tweet;
+
+@Repository
+public interface TweetRepository extends JpaRepository<Tweet, Long> {
 }
